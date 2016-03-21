@@ -7,8 +7,144 @@
     android:fitsSystemWindows="true"
     tools:context="org.hci.doodler.MainActivity">
 
-    <org.hci.doodler.DoodleView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <org.hci.doodler.DoodleView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/doodleView"/>
+
+        <SlidingDrawer
+            android:layout_width="fill_parent"
+            android:layout_height="250dip"
+            android:layout_weight="50"
+            android:content="@+id/linearLayout"
+            android:handle="@+id/button"
+            android:id="@+id/slidingDrawer"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@android:color/white">
+
+                <GridLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:numColumns="4"
+                    android:id="@+id/toolBoxGrid"
+                    android:columnCount="4"
+                    android:rowCount="10"
+                    android:columnOrderPreserved="false"
+                    android:rowOrderPreserved="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_row="0"
+                        android:layout_marginLeft="10dip"
+                        android:id="@+id/toolTipSizeLabel"/>
+
+                    <SeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/toolTipSize"
+                        android:max="9"
+                        android:progress="5"
+                        android:layout_row="1"
+                        android:layout_column="0"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:layout_marginLeft="10dip"
+                        android:id="@+id/opacityLabel"/>
+
+                    <SeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:progress="255"
+                        android:max="255"
+                        android:id="@+id/opacity"
+                        android:layout_row="3"
+                        android:layout_column="0"/>
+
+                    <LinearLayout
+                        android:id="@+id/buttonLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_row="5"
+                        android:layout_column="0">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/redButton"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dip"
+                            android:text="Red"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/greenButton"
+                            android:layout_weight="1"
+                            android:text="Green"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/blueButton"
+                            android:layout_weight="1"
+                            android:text="Blue"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/blackButton"
+                            android:layout_weight="1"
+                            android:layout_marginRight="5dip"
+                            android:text="Black"/>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/clearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_row="6"
+                        android:layout_column="0">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/clearButton"
+                            android:layout_centerInParent="true"
+                            android:text="Clear Screen"/>
+                    </RelativeLayout>
+
+
+
+                </GridLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toolbox" />
+        </SlidingDrawer>
+
+
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
